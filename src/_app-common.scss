@@ -1,0 +1,111 @@
+@import '~nativescript-theme-core/scss/ruby';
+@import '~nativescript-theme-core/scss/index';
+
+.fa {
+
+    font-family: "FontAwesome";
+
+}
+
+// Common page class
+
+.sidedrawer {
+
+    &.sidedrawer-left {
+
+        background-color: #fff;
+
+        .sidedrawer-header-image {
+
+            height: 60;
+
+            width: 60;
+
+            font-size: 60;
+
+            padding: 0;
+
+            margin-bottom: 5;
+
+            margin-top: 20;
+
+        }
+
+        .footnote {
+
+            color: rgb(245, 215, 215);
+
+        }
+
+    }
+
+    .sidedrawer-header {
+
+        background-color: $ruby;
+
+        .sidedrawer-header-brand {
+
+            color: #fff;
+
+        }
+
+    }
+
+    .sidedrawer-content {
+
+        .sidedrawer-list-item {
+
+            padding-left: 15;
+
+            Label {
+
+                vertical-align: center;
+
+            }
+
+            .fa {
+
+                width: 20;
+
+                margin-right: 10;
+
+            }
+
+            &.selected {
+
+                background-color: #e2e2e2;
+
+                Label{
+
+                    color: $ruby;
+                    
+                }
+
+            }
+
+        }
+        
+    }
+
+}
+
+.action-bar, button{
+
+    background-color: $ruby;
+    
+}
+
+.validation {
+
+    color: #a94442;
+
+}
+
+button{
+
+    &:disabled{
+
+        background-color: lightgrey;
+        
+    }
+}

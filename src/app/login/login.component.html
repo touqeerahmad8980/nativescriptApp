@@ -1,0 +1,31 @@
+<DockLayout stretchLastChild="true">
+    <StackLayout dock="top">
+        <Label marginBottom="50" text=""></Label>
+        <Image marginBottom="50" height="50" src="~/assets/images/mars-logo.png"></Image>
+    </StackLayout>
+    <FlexboxLayout flexDirection="row" justifyContent="center" marginBottom="15" dock="bottom">
+        <Label color="#a9a9a9" fontSize="17" text="Don't have your account?"></Label>
+        <Label text="SIGNUP" color="#696969" marginLeft="5" textAlignment="left" fontWeight="bold" fontSize="17" [nsRouterLink]="['/signup']"></Label>
+    </FlexboxLayout>
+    <StackLayout class="form">
+        <StackLayout class="input-field" marginBottom="20">
+            <Label text="Email" class="label font-weight-bold m-b-5"></Label>
+            <TextField class="input" keyboardType="email" #email="ngModel" [(ngModel)]="input.email" email required></TextField>
+            <StackLayout class="hr-light"></StackLayout>
+            <StackLayout class="validation" *ngIf="email.errors && (email.dirty || email.touched)">
+                <Label *ngIf="email.errors.required" text="- An email is required -"></Label>
+                <Label *ngIf="email.errors.email" text="- Email must be valid -"></Label>
+            </StackLayout>
+        </StackLayout>
+        <StackLayout class="input-field" marginBottom="20">
+            <Label text="Password" class="label font-weight-bold m-b-5"></Label>
+            <TextField class="input" secure="true" #password="ngModel" [(ngModel)]="input.password" minlength="5" required></TextField>
+            <StackLayout class="hr-light"></StackLayout>
+            <StackLayout class="validation" *ngIf="password.errors && (password.dirty || password.touched)">
+                <Label *ngIf="password.errors.required" text="- A password is required -"></Label>
+                <Label *ngIf="password.errors.minlength" text="- Password must be longer than 5 characters"></Label>
+            </StackLayout>
+        </StackLayout>
+        <button text="LOG IN" fontWeight="bold" fontSize="18" height="60" [isEnabled]="email.valid && password.valid ? 'true' : 'false'" color="#fff" (tap)="login()"></button>
+    </StackLayout>
+</DockLayout>

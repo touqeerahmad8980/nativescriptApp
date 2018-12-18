@@ -1,0 +1,17 @@
+<ActionBar class="action-bar"> 
+    <GridLayout columns="auto,*" rows="*" sdkExampleTitle sdkToggleNavButton>
+        <Label text="&#xf0c9;" class="fa" fontSize="20" paddingRight="10" borderRightWidth="1" borderRightColor="rgba(255, 255, 255, 0.5)" verticalAlignment="center" (tap)="onDrawerButtonTap()"></Label>
+        <Label col="1" text="Mars Translation" fontSize="20" marginLeft="7" textAlignment="left" verticalAlignment="center" fontWeight="bold"></Label>
+    </GridLayout>
+</ActionBar>
+
+<GridLayout rows="*">
+    <TabView  androidTabsPosition="bottom">
+        <StackLayout *tabItem="{title: 'Tab 1'}">
+            <Label text="Tab 1" class="text-center"></Label>
+        </StackLayout>
+        <StackLayout *tabItem="{title: 'Tab 2'}">
+            <Label text="Label in Tab 2"></Label>
+        </StackLayout>
+    </TabView>
+</GridLayout>

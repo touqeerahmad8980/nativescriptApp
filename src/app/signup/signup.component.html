@@ -1,0 +1,48 @@
+<ActionBar title="Register to Mars Translation">
+</ActionBar>
+
+<DockLayout stretchLastChild="false">
+    <StackLayout class="form" dock="top" marginTop="15">
+        <StackLayout class="input-field" marginBottom="20">
+            <Label text="Full Name" class="label font-weight-bold m-b-5"></Label>
+            <TextField class="input" #fName="ngModel" [(ngModel)]="input.fName" required></TextField>
+            <StackLayout class="hr-light"></StackLayout>
+            <StackLayout class="validation" *ngIf="fName.errors && (fName.dirty || fName.touched)">
+                <Label *ngIf="fName.errors.required" text="- Name is required -"></Label>
+            </StackLayout>
+        </StackLayout>
+        <StackLayout class="input-field" marginBottom="20">
+            <Label text="Email" class="label font-weight-bold m-b-5"></Label>
+            <TextField class="input" keyboardType="email" #email="ngModel" [(ngModel)]="input.email" email required></TextField>
+            <StackLayout class="hr-light"></StackLayout>
+            <StackLayout class="validation" *ngIf="email.errors && (email.dirty || email.touched)">
+                <Label *ngIf="email.errors.required" text="- An email is required -"></Label>
+                <Label *ngIf="email.errors.email" text="- Email must be valid -"></Label>
+            </StackLayout>
+        </StackLayout>
+        <StackLayout class="input-field" marginBottom="20">
+            <Label text="Password" class="label font-weight-bold m-b-5"></Label>
+            <TextField class="input" secure="true" #password="ngModel" [(ngModel)]="input.password" minlength="5" required></TextField>
+            <StackLayout class="hr-light"></StackLayout>
+            <StackLayout class="validation" *ngIf="password.errors && (password.dirty || password.touched)">
+                <Label *ngIf="password.errors.required" text="- A password is required -"></Label>
+                <Label *ngIf="password.errors.minlength" text="- Password must be longer than 5 characters"></Label>
+            </StackLayout>
+        </StackLayout>
+        <StackLayout class="input-field" marginBottom="20">
+            <Label text="Phone" class="label font-weight-bold m-b-5"></Label>
+            <TextField class="input" keyboardType="phone" #phone="ngModel" [(ngModel)]="input.phone" required></TextField>
+            <StackLayout class="hr-light"></StackLayout>
+            <StackLayout class="validation" *ngIf="phone.errors && (phone.dirty || phone.touched)">
+                <Label *ngIf="phone.errors.required" text="- Phone Number is required -"></Label>
+            </StackLayout>
+        </StackLayout>
+        <StackLayout class="input-field">
+            <button text="SIGN UP" color="#fff" fontWeight="bold" fontSize="18" height="60" [isEnabled]="fName.valid && email.valid && password.valid && phone.valid ? 'true' : 'false'" (tap)="register()"></button>
+        </StackLayout>
+    </StackLayout>
+    <FlexboxLayout flexDirection="row" justifyContent="center" marginBottom="15" dock="bottom">
+        <Label color="#a9a9a9" fontSize="17" text="Already a member?"></Label>
+        <Label text="LOGIN HERE" color="#696969" marginLeft="5" textAlignment="left" fontWeight="bold" fontSize="17" [nsRouterLink]="['/login']"></Label>
+    </FlexboxLayout>
+</DockLayout>
